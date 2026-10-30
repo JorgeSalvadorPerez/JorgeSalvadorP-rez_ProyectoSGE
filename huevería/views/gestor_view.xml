@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_producto_list" model="ir.ui.view">
+        <field name="name">hueveria.producto.list</field>
+        <field name="model">hueveria.producto</field>
+        <field name="arch" type="xml">
+            <list string="Lista de productos">
+                <field name="nombreProducto"/>
+                <field name="referenciaProducto"/>
+                <field name="tipoProducto"/>
+                <field name="precioProducto"/>
+                <field name="cantidadProducto"/>
+                <field name="actividadProducto"/>
+                <field name="fecha_RegistroProducto"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_producto_form" model="ir.ui.view">
+        <field name="name">hueveria.producto.form</field>
+        <field name="model">hueveria.producto</field>
+        <field name="arch" type="xml">
+            <form string="Ficha del producto">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="nombreProducto"/>
+                        <h1>
+                            <field name="nombreProducto" placeholder="Ej. Huevos tamaño L"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Información general">
+                            <field name="referenciaProducto"/>
+                            <field name="tipoProducto"/>
+                            <field name="descripcionProducto"/>
+                        </group>
+                        <group string="Información comercial">
+                            <field name="precioProducto"/>
+                            <field name="cantidadProducto"/>
+                            <field name="actividadProducto"/>
+                            <field name="fecha_RegistroProducto"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_producto" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="res_model">hueveria.producto</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_producto_list"/>
+    </record>
+
+    <menuitem id="menu_hueveria_root"
+              name="Avícola del Ebro"
+              sequence="10"/>
+
+    <menuitem id="menu_producto"
+              name="Productos"
+              parent="menu_hueveria_root"
+              action="action_producto"
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_producto_user,access.producto.user,model_hueveria_producto,base.group_user,1,1,1,1
+access_proveedor_user,access.proveedor.user,model_hueveria_proveedor,base.group_user,1,1,1,1
+
